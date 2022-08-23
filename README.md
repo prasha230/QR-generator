@@ -1,1 +1,1 @@
-"# QR-generator" 
+# QR-generator
