@@ -1,6 +1,7 @@
 {% extends 'generate/base.html' %}
 {% load static %}
 {% block content %}
+<div style="margin-top:100px;">
     <center>
     <strong>INPUT : </strong>
     {% if flag1 == True %}
@@ -16,4 +17,5 @@
         <img src="{% static 'qr.png'%}" width="200px"/>
     </div>
     </center>
+</div>
 {% endblock %}
