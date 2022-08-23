@@ -11,8 +11,9 @@ def home(request):
             inp=form.cleaned_data['inp']
             url_pattern_1 = "^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$"
             url_pattern_2 = "^[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$"
-            flag=(re.match(url_pattern_1, inp)!=None) or (re.match(url_pattern_2, inp)!=None)
+            flag1=re.match(url_pattern_1, inp)!=None
+            flag2=re.match(url_pattern_2, inp)!=None
             qrcode.make(inp).save('generate/static/qr.png')
-            return render(request,'generate/result.html',{'inp':inp,'flag':flag})
+            return render(request,'generate/result.html',{'inp':inp,'flag1':flag1,'flag2':flag2})
     form=textinput()
     return render(request,'generate/home.html',{'form':form})

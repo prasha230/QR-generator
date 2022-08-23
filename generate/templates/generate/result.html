@@ -3,10 +3,14 @@
 {% block content %}
     <center>
     <strong>INPUT : </strong>
-    {% if flag == True %}
-        <a href={{inp}}>{{inp}}</a>
+    {% if flag1 == True %}
+        <a href={{inp}} target="_blank">{{inp}}</a>
     {% else %}
-        {{inp}}
+        {% if flag2 == True %}
+        <a href="https://{{inp}}" target="_blank">{{inp}}</a>
+        {% else %}
+            {{inp}}
+        {% endif %}
     {% endif %}
     <div style="margin-top:50px;">
         <img src="{% static 'qr.png'%}" width="200px"/>
